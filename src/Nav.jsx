@@ -17,10 +17,10 @@ const Nav = () => {
                     <NavLink exact="true" to="/">Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/displayemployer">DisplayEmployer</NavLink>
+                    <NavLink to="/displayemployer">DisplayEmployees</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/addemployer">AddEmployer</NavLink>
+                    <NavLink to="/addemployer">AddEmployee</NavLink>
                 </li>
             </ul>
         </div>
