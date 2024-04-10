@@ -1,16 +1,18 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { MdDelete } from "react-icons/md";
+import { DataContext } from "../DataContext";
 
 const AddEmployer = () => {
 
     const [showForm, setShowForm] = useState(false)
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        position: "",
-        department: "",
-        startDate: "",
-    });
+    // const [formData, setFormData] = useState({
+    //     name: "",
+    //     email: "",
+    //     position: "",
+    //     department: "",
+    //     startDate: "",
+    // });
+    const {formData, setFormData} = useContext(DataContext);
 
    const [errors, setErrors ] = useState({});
     // function to displayform
