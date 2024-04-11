@@ -5,14 +5,8 @@ import { DataContext } from "../DataContext";
 const AddEmployer = () => {
 
     const [showForm, setShowForm] = useState(false)
-    // const [formData, setFormData] = useState({
-    //     name: "",
-    //     email: "",
-    //     position: "",
-    //     department: "",
-    //     startDate: "",
-    // });
-    const {formData, setFormData} = useContext(DataContext);
+  
+    const {formData, setFormData, setEmployees} = useContext(DataContext);
 
    const [errors, setErrors ] = useState({});
     // function to displayform
@@ -63,6 +57,17 @@ const AddEmployer = () => {
       
         if (Object.keys(validationErrors).length === 0) {
           // Only update state if there are no validation errors
+
+          const newEmployee = {
+            id: Date.now(), // Generate unique ID for the new employee
+            name: formData.name,
+            email: formData.email,
+            position: formData.position,
+            department: formData.department,
+          };
+          //updates the employee list by adding the input form data
+          setEmployees((prevEmployees) => [...prevEmployees, newEmployee]);
+
           alert("Form submitted Successful");
           setFormData({
             name: "",
@@ -71,6 +76,7 @@ const AddEmployer = () => {
             department: "",
             startDate: "",
           });
+          setShowForm(false);
         }
       }
 

@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FaTimes } from "react-icons/fa";
+import { DataContext } from '../DataContext';
 
 const DisplayEmployer = () => {
-  // Dummy data for initial table rows
-  const initialEmployees = [
-    { id: 1, name: 'Solomon Razak', email: 'solomon@example.com', position: 'Manager', department: 'IT'},
-    { id: 2, name: 'Ntiri Jameel', email: 'ntiri@example.com', position: 'Developer', department: 'Marketing'},
-    { id: 3, name: 'Derek Gyan', email: 'Derek@example.com', position: 'Distributor', department: 'Sales'},
-    { id: 4, name: 'Austine Appiah', email: 'austinee@example.com', position: 'Marketer', department: 'Finance'},
-    { id: 5, name: 'Thomas Mensah', email: 'thomas@example.com', position: 'Product Manager', department: 'Management'}
-  ];
-
-  const [employees, setEmployees] = useState(initialEmployees);
+  
+ 
+  const {employees, setEmployees} = useContext(DataContext);
 
   // Function to handle editing of employee data
   const handleEdit = (id, field, value) => {
