@@ -4,7 +4,8 @@ import { DataContext } from "../DataContext";
 
 const AddEmployer = () => {
 
-    const [showForm, setShowForm] = useState(false)
+    const [showForm, setShowForm] = useState(false);
+    const [showButton, setShowButton] = useState(true)
   
     const {formData, setFormData, setEmployees} = useContext(DataContext);
 
@@ -12,6 +13,7 @@ const AddEmployer = () => {
     // function to displayform
     function displayForm(){
         setShowForm(!showForm)
+        setShowButton(false)
     }
 
     // function to handle form input changes
@@ -82,6 +84,7 @@ const AddEmployer = () => {
 
       function handleCancel() {
         setShowForm(false) // Hide the displayed form
+        setShowButton(true)
       }
     
       function handleDelete(e) {
@@ -97,12 +100,14 @@ const AddEmployer = () => {
 
   return (
     <div>
+      {showButton &&
       <div className="flex justify-center">
         <button className="bg-slate-300 px-2 py-1 rounded-md my-3" onClick={displayForm}>Add New Employer</button>
       </div>
+}
       {showForm && 
 
-      <div className="w-[300px] mx-auto">
+      <div className="w-[300px] mx-auto mt-10">
         <form onSubmit={handleSubmit}>
             <div>
           <label className="font-medium" htmlFor="name">
@@ -110,7 +115,7 @@ const AddEmployer = () => {
           </label>
           <input
             id="name"
-            placeholder="Enter employer name"
+            placeholder="Enter employee name"
             type="text"
             className="block w-full bg-gray-100 border-solid border-[2px] h-[40px] text-[14px] my-2 px-4 rounded-xl focus:border-blue-600 focus:outline-none focus:ring-0 required:border-red-500"
             name="name"
@@ -141,7 +146,7 @@ const AddEmployer = () => {
           </label>
           <input
             id="position"
-            placeholder="Employer position"
+            placeholder="Employee position"
             className="block w-full bg-gray-100 border-2 h-[40px] text-[14px] my-2 px-4 rounded-xl focus:border-blue-600 focus:outline-none required:border-red-500"
             type="text"
             name="position"

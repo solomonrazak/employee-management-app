@@ -66,7 +66,7 @@ const updateEmployee = asyncHandler(async (req, res) => {
 
 //@desc delete employee
 //@route DELETE /api/employees/:id
-//get to access to the api
+//get access to the api
 
 const deleteEmployee = asyncHandler(async (req,res) => {
     const employee = await Employee.findById(req.params.id);
