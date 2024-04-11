@@ -45,7 +45,7 @@ const DisplayEmployer = () => {
         <tbody>
           {employees.map(employee => (
             <tr key={employee.id}  className="border border-solid border-l-0 border-r-0">
-              <td className="px-6 py-2"><input type="text" value={employee.name} onChange={e => handleEdit(employee.id, 'name', e.target.value)} className="p-1"/></td>
+              <td className="px-6 py-2"><input type="text" value={employee.name} onChange={e => handleEdit(employee.id, 'name', e.target.value)} className="p-1 font-medium"/></td>
               <td className="px-6 py-2"><input type="email" value={employee.email} onChange={e => handleEdit(employee.id, 'email', e.target.value)}  className="p-1"/></td>
               <td className="px-8 py-2 ml-8"><input type="text" value={employee.position} onChange={e => handleEdit(employee.id, 'position', e.target.value)} className="p-1"/></td>
               <td className="px-6 py-2 ml-[15px]"><input type="text" value={employee.department} onChange={e => handleEdit(employee.id, 'department', e.target.value)} className="p-1"/></td>
